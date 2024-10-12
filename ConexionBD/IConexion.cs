@@ -8,5 +8,8 @@ namespace ConexionBD
         public void OpenConnection();
         public void CloseConnection();
 
+        public string Select(string table, string[] columns);
+
+
     }
 }

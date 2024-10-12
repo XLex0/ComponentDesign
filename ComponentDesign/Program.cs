@@ -20,7 +20,7 @@ namespace ComponentDesign
                 // Abrir la conexión
                 mysql.OpenConnection();
                 Console.WriteLine("Conexión a la base de datos abierta exitosamente.");
-
+                mysql.Select("Cliente", ["Nombre","Apellido","DNI"]);
 
             }
             catch (Exception ex)
