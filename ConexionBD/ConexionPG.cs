@@ -1,10 +1,8 @@
-﻿using System;
+﻿
 using Npgsql;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 using ConexionBD;
-using Npgsql;
-using System;
+
 
 public class ConexionPostgreSQL : IConexion
 {
@@ -24,12 +22,12 @@ public class ConexionPostgreSQL : IConexion
         if (_conexion == null)
         {
             _conexion = new NpgsqlConnection(_dbConnectionStringBuilder);
-    }
+        }
 
         try
         {
             if (_conexion.State == System.Data.ConnectionState.Closed)
-    {
+            {
                 _conexion.Open();
             }
         }
@@ -37,11 +35,8 @@ public class ConexionPostgreSQL : IConexion
         {
             Console.WriteLine($"Error al abrir la conexión: {ex.Message}");
             throw;
-           }
-
-        catch (NpsqlException e) {
-            MessageBox.Show($"No se pudo conectar a la base de datos: {e.Message}")
-           }
+        }
+    }
 
     // Método para cerrar la conexión
     public void CloseConnection()

@@ -1,9 +1,5 @@
 ﻿using ConexionBD;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Bcpg;
-using System.Net;
-using System.Runtime.InteropServices.JavaScript;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class ConexionMySql : IConexion
 {
