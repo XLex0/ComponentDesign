@@ -14,13 +14,12 @@ namespace ComponentDesign
                 "vvPhcTSX7mpSNCqNJ8mm",
                 "3306"
             );
-
             try
             {
                 // Abrir la conexión
                 mysql.OpenConnection();
                 Console.WriteLine("Conexión a la base de datos abierta exitosamente.");
-                mysql.Select("Cliente", ["Nombre","Apellido","DNI"]);
+                mysql.Select("Cliente", ["Nombre", "Apellido", "DNI"]);
 
             }
             catch (Exception ex)
@@ -37,6 +36,33 @@ namespace ComponentDesign
             // Esperar a que el usuario presione una tecla antes de cerrar la aplicación
             Console.WriteLine("Presiona cualquier tecla para salir...");
             Console.ReadKey();
+
+            ConexionPG pgAdmin = new ConexionPG("localhost",
+                "postgres", 
+                "postgres", 
+                "cDc#Fran$2004",
+                "5432");
+            try
+            {
+                // Abrir la conexión
+                pgAdmin.OpenConnection();
+                Console.WriteLine("Conexión a la base de datos abierta exitosamente.");
+                mysql.Select("Cliente", ["Nombre", "Apellido", "DNI"])
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocurrió un error: {ex.Message}");
+            }
+            finally
+            
+                pgAdmin.CloseConnection();
+
+            }
+          
+
+          
         }
     }
 }
