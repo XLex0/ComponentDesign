@@ -1,4 +1,8 @@
-﻿using ConexionBD;
+﻿using System;
+using Npgsql;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ConexionBD;
 using Npgsql;
 using System;
 
@@ -20,12 +24,12 @@ public class ConexionPostgreSQL : IConexion
         if (_conexion == null)
         {
             _conexion = new NpgsqlConnection(_dbConnectionStringBuilder);
-        }
+    }
 
         try
         {
             if (_conexion.State == System.Data.ConnectionState.Closed)
-            {
+    {
                 _conexion.Open();
             }
         }
@@ -33,12 +37,15 @@ public class ConexionPostgreSQL : IConexion
         {
             Console.WriteLine($"Error al abrir la conexión: {ex.Message}");
             throw;
-        }
-    }
+           }
+
+        catch (NpsqlException e) {
+            MessageBox.Show($"No se pudo conectar a la base de datos: {e.Message}")
+           }
 
     // Método para cerrar la conexión
     public void CloseConnection()
-    {
+        {
         if (_conexion != null && _conexion.State == System.Data.ConnectionState.Open)
         {
             try
@@ -51,15 +58,18 @@ public class ConexionPostgreSQL : IConexion
                 throw;
             }
         }
+
     }
 
     // Método para realizar una consulta SELECT
     public string Select(string table, string[] columns)
+
     {
         // Construir la cadena de columnas para la consulta
         string columnString = string.Join(", ", columns);
         _commandString = $"SELECT {columnString} FROM {table};";
         Console.WriteLine(_commandString);
+
 
         try
         {
@@ -94,10 +104,11 @@ public class ConexionPostgreSQL : IConexion
         }
 
         return "Consulta completada";
-    }
+        }
 
     public System.Data.ConnectionState getStatus()
-    {
+        {
         return _conexion.State;
+        }
+
     }
-}
