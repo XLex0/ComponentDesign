@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentDesign", "ComponentDesign\ComponentDesign.csproj", "{B6032F71-F2D8-4DF6-A718-33F0AA65AA06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentDesign", "ComponentDesign\ComponentDesign.csproj", "{B6032F71-F2D8-4DF6-A718-33F0AA65AA06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionBD", "ConexionBD\ConexionBD.csproj", "{F22C0C3C-A35C-4376-9E66-484E0A002A37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConexionBD", "ConexionBD\ConexionBD.csproj", "{F22C0C3C-A35C-4376-9E66-484E0A002A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{0D631803-C48A-457A-944A-375036FDDAC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F22C0C3C-A35C-4376-9E66-484E0A002A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F22C0C3C-A35C-4376-9E66-484E0A002A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F22C0C3C-A35C-4376-9E66-484E0A002A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D631803-C48A-457A-944A-375036FDDAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D631803-C48A-457A-944A-375036FDDAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D631803-C48A-457A-944A-375036FDDAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D631803-C48A-457A-944A-375036FDDAC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

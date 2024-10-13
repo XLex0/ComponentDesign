@@ -6,21 +6,35 @@ namespace ComponentDesign
     {
         static void Main(string[] args)
         {
-            // Crear una instancia de ConexionMySql
-            ConexionMySql mysql = new ConexionMySql(
-                "bcvvglp6byv7i4poecqn-mysql.services.clever-cloud.com",
-                "bcvvglp6byv7i4poecqn",
-                "utharwr7hzo8ft39",
-                "vvPhcTSX7mpSNCqNJ8mm",
-                "3306"
+            // Puedes usar la interfaz IConexion para declarar la variable
+
+            // Descomenta esta línea si deseas usar MySQL
+            // conexion = new ConexionMySql(
+            //     "bcvvglp6byv7i4poecqn-mysql.services.clever-cloud.com",
+            //     "bcvvglp6byv7i4poecqn",
+            //     "utharwr7hzo8ft39",
+            //     "vvPhcTSX7mpSNCqNJ8mm",
+            //     "3306"
+            // );
+
+            // Asignar la conexión de PostgreSQL
+            var conexion = new ConexionPostgreSQL(
+                "bnnpd4mx9zooee3tul0x-postgresql.services.clever-cloud.com",
+                "bnnpd4mx9zooee3tul0x",
+                "uvhngjuj8mhvb8pbmfun",
+                "UhHtFhjDBwRzzOMCFMEtzz3107twHn",
+                "50013"
             );
+
 
             try
             {
                 // Abrir la conexión
-                mysql.OpenConnection();
+                conexion.OpenConnection();
                 Console.WriteLine("Conexión a la base de datos abierta exitosamente.");
-                mysql.Select("Cliente", ["Nombre","Apellido","DNI"]);
+
+                // Llamar al método Select usando la interfaz
+                conexion.Select("Cliente", new string[] { "Nombre", "Apellido", "DNI" });
 
             }
             catch (Exception ex)
@@ -30,7 +44,7 @@ namespace ComponentDesign
             finally
             {
                 // Cerrar la conexión
-                mysql.CloseConnection();
+                conexion.CloseConnection();
                 Console.WriteLine("Conexión a la base de datos cerrada.");
             }
 
